@@ -7,6 +7,7 @@ import ru.hogwarts.school.HW6_course4_thread.model.Student;
 import ru.hogwarts.school.HW6_course4_thread.service.StudentService;
 
 import java.util.Collection;
+import java.util.List;
 
 @RestController
 @RequestMapping("/student")
@@ -53,7 +54,15 @@ public class StudentController {
                                                                  @RequestParam int to){
         return ResponseEntity.ok(studentService.findByAgeBetween(from, to));
     }
-   /* @GetMapping("/findAllStudentsStartedWithBigA")
+    @GetMapping("/printStudentsName")
+    public void printStudentsName(){
+        studentService.printStudentsName();
+    }
+    @GetMapping("/printNameSynchronized")
+    public void printNameSynchronized(){
+        studentService.printNameSynchronized();
+    }
+    /*@GetMapping("/findAllStudentsStartedWithBigA")
     public Stream<String> findAllStudentsStartedWithBigA(){
         return studentService.findAllStudentsStartedWithBigA();
     }
